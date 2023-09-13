@@ -13,4 +13,5 @@ module com.example.main_project_final {
     exports com.example.main_project_final.client;
     opens com.example.main_project_final.client to javafx.fxml;
     opens com.example.main_project_final.backend to javafx.base;
+    opens com.example.main_project_final.utils to javafx.base;
 }

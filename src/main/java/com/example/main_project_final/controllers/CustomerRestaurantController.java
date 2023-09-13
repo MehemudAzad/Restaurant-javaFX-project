@@ -2,10 +2,8 @@ package com.example.main_project_final.controllers;
 
 import com.example.main_project_final.CustomerMain;
 import com.example.main_project_final.backend.Food;
-import com.example.main_project_final.backend.Restaurant;
-import com.example.main_project_final.utils.DatabaseDTO;
-import com.example.main_project_final.utils.NetworkUtil;
 import com.example.main_project_final.utils.OrderDTO;
+import com.example.main_project_final.utils.CartFoodDTO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -16,14 +14,26 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.text.Text;
 
-import javax.security.auth.callback.Callback;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class CustomerRestaurantController implements Initializable {
     private CustomerMain main;
+    List<CartFoodDTO> cartList = new ArrayList<>();
+    //new Addition
+    @FXML
+    private TableView<CartFoodDTO> cartTable;
+    @FXML
+    private TableColumn<CartFoodDTO, String> orderNameCol;
+
+    @FXML
+    private TableColumn<CartFoodDTO, Double> orderPriceCol;
+
+    @FXML
+    private TableColumn<CartFoodDTO, Integer> orderItemCountCol;
 
     @FXML
     private Label nameLabel;
@@ -31,8 +41,8 @@ public class CustomerRestaurantController implements Initializable {
     private Label categoryLabel;
     @FXML
     private Label priceLabel;
-    @FXML
-    private ListView<String> orderListView;
+//    @FXML
+//    private ListView<String> orderListView;
     @FXML
     private TextField filteredField;
     @FXML
@@ -56,7 +66,10 @@ public class CustomerRestaurantController implements Initializable {
     private TableColumn actionCol;
     @FXML
     private Label stateLabel;
-
+    @FXML
+    private Label restNameLabel;
+    @FXML
+    private Label use
 
     @FXML
     void placeOrder(ActionEvent event) {
@@ -66,9 +79,12 @@ public class CustomerRestaurantController implements Initializable {
             System.out.println("Exception found in placing order");
         }
         main.orderDTO = new OrderDTO(main.restaurantManager.searchRestaurantByName(main.orderDTO.getRestaurant().getName()), main.customerUserName);
-        orderListView.getItems().clear();
+//        orderListView.getItems().clear();
+        //clear cartList
+        cartList.clear();
+        dataCartList.clear();
     }
-
+//
     @FXML
     void addOrder(MouseEvent event) throws Exception {
 
@@ -79,6 +95,8 @@ public class CustomerRestaurantController implements Initializable {
 
 
     private final ObservableList<Food> dataList = FXCollections.observableArrayList();
+
+    private final ObservableList<CartFoodDTO> dataCartList = FXCollections.observableArrayList();
 
     @FXML
     void goBackHome(ActionEvent event) {
@@ -106,6 +124,16 @@ public class CustomerRestaurantController implements Initializable {
         category.setCellValueFactory(new PropertyValueFactory<>("category"));
 
 
+//        orderNameCol.setCellValueFactory();
+        orderNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        orderPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
+        orderItemCountCol.setCellValueFactory(new PropertyValueFactory<>("itemCount"));
+
+
+        cartTable.setEditable(true);
+        cartTable.setItems(dataCartList);
+        //cart Table
+
 //        TableColumn<Food, Void> actionColumn = new TableColumn<>("Action");
         actionCol.setCellFactory(param -> new TableCell<Food, Void>() {
             private final Button editButton = new Button("ADD TO CART");
@@ -115,7 +143,7 @@ public class CustomerRestaurantController implements Initializable {
                     Food item = getTableView().getItems().get(getIndex());
                     // Handle the button click event (e.g., open a dialog for editing)
                     System.out.println("Edit button clicked for item: " + item.getName());
-                    orderListView.getItems().add(item.getName());
+//                    orderListView.getItems().add(item.getName());
 
                     if(main.orderDTO.getOrderList().get(item) == null){
                         item.incrementOrderCnt();
@@ -125,6 +153,36 @@ public class CustomerRestaurantController implements Initializable {
                         main.orderDTO.addFoodToOrder(item, main.orderDTO.getOrderList().get(item) + 1);
                     }
 
+                    String foodName = item.getName();
+                    Double foodPrice = item.getPrice();
+
+                    boolean itemExists = false;
+//                    for (CartData cartItem : cartItems) {
+//                        if (cartItem.getFoodName().equals(newItem.getFoodName()) && cartItem.getFoodPrice() == newItem.getFoodPrice()) {
+//                            // If an item with the same name and price exists, update its orderCount
+//                            cartItem.setOrderCount(cartItem.getOrderCount() + newItem.getOrderCount());
+//                            itemExists = true;
+//                            break; // No need to continue searching
+//                        }
+//                    }
+                    for(CartFoodDTO cartItem : cartList){
+                        if(cartItem.getName().equals(foodName)){
+                            System.out.println("I already exist");
+                            cartItem.setItemCount(cartItem.getItemCount() + 1);
+
+                            itemExists = true;
+                            break;
+                        }
+                    }
+                    CartFoodDTO cartFoodDTO;
+                    if (!itemExists) {
+                        // If the item doesn't exist, add it to the cartItems list
+                        cartFoodDTO = new CartFoodDTO(foodName, foodPrice, 1);
+                        cartList.add(cartFoodDTO);
+                    }
+
+                    dataCartList.clear();
+                    dataCartList.addAll(cartList);
                     main.orderDTO.print();
                 });
             }

@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1100.0" style="-fx-background-color: #E9A6A6;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.main_project_final.controllers.RestHomeController">
+<AnchorPane prefHeight="800.0" prefWidth="1122.0" style="-fx-background-color: #E9A6A6;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.main_project_final.controllers.RestHomeController">
    <children>
-      <TableView fx:id="restaurantTable" layoutX="21.0" layoutY="159.0" onMouseClicked="#displayDetails" prefHeight="611.0" prefWidth="571.0" style="-fx-background-radius: 5px; -fx-border-width: 1px; -fx-background-color: #864879; -fx-border-color: #9288F8; -fx-border-radius: 5px;">
+      <TableView fx:id="restaurantTable" layoutX="21.0" layoutY="159.0" onMouseClicked="#displayDetails" prefHeight="631.0" prefWidth="571.0" style="-fx-background-radius: 5px; -fx-border-width: 1px; -fx-background-color: #864879; -fx-border-color: #9288F8; -fx-border-radius: 5px;">
         <columns>
           <TableColumn fx:id="tableFood" prefWidth="217.0" style="-fx-text-fill: #3F3351; -fx-background-color: #FAF0E6;" text="Name" />
           <TableColumn fx:id="tableCategory" prefWidth="162.0" style="-fx-text-fill: #3F3351; -fx-background-color: #EEEEEE;" text="Category" />
@@ -39,14 +39,14 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <ImageView fx:id="imageViewHome" fitHeight="297.0" fitWidth="316.0" layoutX="804.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imageViewHome" fitHeight="301.0" fitWidth="317.0" layoutX="797.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@kfc.png" />
          </image></ImageView>
-      <Button layoutX="21.0" layoutY="120.0" mnemonicParsing="false" text="Costliest Items" />
-      <Button layoutX="119.0" layoutY="120.0" mnemonicParsing="false" text="Most Popular Items" />
-      <Button layoutX="241.0" layoutY="121.0" mnemonicParsing="false" text="View All" />
-      <ListView fx:id="topCustomersList" layoutX="612.0" layoutY="503.0" prefHeight="267.0" prefWidth="167.0" style="-fx-background-color: #864879; -fx-background-radius: 5px;" />
+      <Button layoutX="21.0" layoutY="120.0" mnemonicParsing="false" style="-fx-background-color: #1F1D36;" text="Costliest Items" textFill="WHITE" />
+      <Button layoutX="130.0" layoutY="120.0" mnemonicParsing="false" style="-fx-background-color: #1F1D36;" text="Most Popular Items" textFill="WHITE" />
+      <Button layoutX="261.0" layoutY="120.0" mnemonicParsing="false" style="-fx-background-color: #1F1D36;" text="View All" textFill="WHITE" />
+      <ListView fx:id="topCustomersList" layoutX="612.0" layoutY="503.0" prefHeight="285.0" prefWidth="167.0" style="-fx-background-color: #864879; -fx-background-radius: 5px;" />
       <Label layoutX="612.0" layoutY="470.0" prefHeight="38.0" prefWidth="167.0" style="-fx-background-color: #3F3351;" text="Top Customers" textFill="WHITE">
          <font>
             <Font size="24.0" />
@@ -58,49 +58,71 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="796.0" layoutY="367.0" prefHeight="403.0" prefWidth="297.0" style="-fx-border-color: #1F1D36; -fx-background-radius: 3px; -fx-border-radius: 3px;">
+      <AnchorPane layoutX="792.0" layoutY="365.0" prefHeight="424.0" prefWidth="323.0" style="-fx-border-color: #1F1D36; -fx-background-radius: 3px; -fx-border-radius: 8px;">
          <children>
-            <Label layoutX="14.0" layoutY="202.0" text="NAME:">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            <Label layoutX="14.0" layoutY="251.0" text="CATEGORY:">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            <Label layoutX="14.0" layoutY="292.0" text="PRICE:">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            <Label layoutX="14.0" layoutY="330.0" text="ORDER:">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            <Label fx:id="nameText" layoutX="79.0" layoutY="204.0" prefHeight="23.0" prefWidth="207.0">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="categoryText" layoutX="127.0" layoutY="253.0" prefHeight="17.0" prefWidth="170.0">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="priceText" layoutX="97.0" layoutY="294.0" prefHeight="17.0" prefWidth="170.0">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="orderText" layoutX="106.0" layoutY="332.0" prefHeight="17.0" prefWidth="170.0">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
+            <AnchorPane layoutX="7.0" layoutY="197.0" prefHeight="36.0" prefWidth="306.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 8px;">
+               <children>
+                  <Label layoutX="3.0" layoutY="5.0" text="NAME:">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="nameText" layoutX="82.0" layoutY="8.0" prefHeight="23.0" prefWidth="223.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="8.0" layoutY="250.0" prefHeight="36.0" prefWidth="308.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 8px;">
+               <children>
+                  <Label layoutX="5.0" layoutY="8.0" text="CATEGORY:">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="categoryText" layoutX="121.0" layoutY="9.0" prefHeight="17.0" prefWidth="170.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="6.0" layoutY="351.0" prefHeight="40.0" prefWidth="308.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 8px;">
+               <children>
+                  <Label layoutX="4.0" layoutY="7.0" text="ORDER:">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="orderText" layoutX="104.0" layoutY="3.0" prefHeight="33.0" prefWidth="190.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="8.0" layoutY="297.0" prefHeight="39.0" prefWidth="306.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 8px;">
+               <children>
+                  <Label layoutX="4.0" layoutY="6.0" text="PRICE:">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="priceText" layoutX="114.0" layoutY="8.0" prefHeight="23.0" prefWidth="171.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <ImageView fitHeight="187.0" fitWidth="320.0" layoutX="1.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
+      <Button layoutX="218.0" layoutY="67.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="167.0" style="-fx-background-color: #864879;" text="Add Food" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

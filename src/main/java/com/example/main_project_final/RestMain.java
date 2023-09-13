@@ -82,7 +82,7 @@ public class RestMain extends Application {
         controller.init(userName);
         // Set the primary stage
         stage.setTitle("Restaurant Home");
-        stage.setScene(new Scene(root, 1100, 800));
+        stage.setScene(new Scene(root, 1130, 800));
         stage.show();
 
     }

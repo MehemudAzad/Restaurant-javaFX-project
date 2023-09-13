@@ -136,7 +136,7 @@ public class CustomerMain extends Application {
         orderDTO = new OrderDTO(restaurantManager.searchRestaurantByName(restName), customerUserName);
 //        menuList = restaurantManager.searchRestaurantByName(restName).getMenuItems();
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("test.fxml"));
+        loader.setLocation(getClass().getResource("cart.fxml"));
         Parent root = loader.load();
         System.out.println(restName);
 
