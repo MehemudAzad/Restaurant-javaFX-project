@@ -67,7 +67,7 @@ public class CustomerRestaurantController implements Initializable {
     @FXML
     private Label stateLabel;
     @FXML
-    private Label restNameLabel;
+    private Label restaurantNameLabel;
     @FXML
     private Label userLabel;
     @FXML
@@ -111,8 +111,7 @@ public class CustomerRestaurantController implements Initializable {
     public void init(String restName){
             dataList.addAll(main.restaurantManager.searchRestaurantByName(restName).getMenuItems());
             userLabel.setText(main.customerUserName);
-            restNameLabel.setText(restName);
-//            priceLabel.setText(main.orderDTO.totalPrice());
+            restaurantNameLabel.setText(restName);
     }
 
     public void setMain(CustomerMain main) {
@@ -137,6 +136,11 @@ public class CustomerRestaurantController implements Initializable {
 
         cartTable.setEditable(true);
         cartTable.setItems(dataCartList);
+
+        //set price for cart
+//        double labelPrice = main.orderDTO.totalPrice();
+//        String labelPriceString = String.valueOf(labelPrice);
+//        totalPriceLabel.setText(labelPriceString);
         //cart Table
 
 //        TableColumn<Food, Void> actionColumn = new TableColumn<>("Action");
@@ -189,6 +193,10 @@ public class CustomerRestaurantController implements Initializable {
                     dataCartList.clear();
                     dataCartList.addAll(cartList);
                     main.orderDTO.print();
+
+                    double labelPrice = main.orderDTO.totalPrice();
+                    String labelPriceString = String.valueOf(labelPrice);
+                    totalPriceLabel.setText(labelPriceString);
                 });
             }
 
@@ -234,7 +242,7 @@ public class CustomerRestaurantController implements Initializable {
 
                     String lowerCaseFilter = newValue.toLowerCase();
 
-                    if(food.getName().toLowerCase().indexOf(lowerCaseFilter) != -1){
+                    if(food.getName().toLowerCase().contains(lowerCaseFilter)){
                         return true;
                     }else{
                         return false;
@@ -250,7 +258,7 @@ public class CustomerRestaurantController implements Initializable {
 
                 String lowerCaseFilter = newValue.toLowerCase();
 
-                if(food.getCategory().toLowerCase().indexOf(lowerCaseFilter) != -1){
+                if(food.getCategory().toLowerCase().contains(lowerCaseFilter)){
                     return true;
                 }else{
                     return false;

@@ -170,9 +170,7 @@ public class HomeController implements Initializable{
                         return true;
                     }
 
-                    String foodPrice = restaurant.getPrice();
-
-                    return restaurant.getPrice().toLowerCase().contains(foodPrice);
+                    return restaurant.getPrice().equalsIgnoreCase(newValue);
                 });
             });
 

@@ -131,11 +131,13 @@ public class ReadThreadServer implements Runnable {
 //                            System.out.println(food.getName() + "current order: " + orderCount);
 //                            System.out.println();
                         });
+
                         //write to the restaurant client
                         if(networkUtil == null)
                         {
                             System.out.println("restaurant not found");
-                        }else{
+                        }else if(orderDTO.getOrderList().size() > 0){
+                            System.out.println(orderDTO.getOrderList().size());
                             System.out.println("order placed successfully to " + orderDTO.getRestaurant().getName());
                             try{
                                 networkUtil.write(orderDTO);

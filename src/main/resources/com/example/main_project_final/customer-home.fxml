@@ -69,7 +69,7 @@
             </ImageView>
             <ImageView fitHeight="41.0" fitWidth="58.0" layoutX="788.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../../Downloads/cart_new.png" />
+                  <Image url="@cart_new.png" />
                </image>
             </ImageView>
          </children>
@@ -80,7 +80,7 @@
             <Image url="@search_icon.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="275.0" fitWidth="401.0" layoutX="697.0" layoutY="620.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="275.0" fitWidth="401.0" layoutX="697.0" layoutY="616.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@food.jpeg" />
          </image>
@@ -94,16 +94,21 @@
             </Label>
          </children>
       </Pane>
-      <AnchorPane layoutX="694.0" layoutY="140.0" prefHeight="361.0" prefWidth="407.0" style="-fx-background-color: #FFABAB;">
+      <AnchorPane layoutX="693.0" layoutY="140.0" prefHeight="363.0" prefWidth="408.0" style="-fx-background-color: # #FEF2F4;">
          <children>
-            <Label layoutX="14.0" layoutY="14.0" text="Snacks">
+            <Label layoutX="3.0" layoutY="14.0" prefHeight="46.0" prefWidth="401.0" style="-fx-font-family: verdana;" text="Speacial Offers and Combo Packs">
                <font>
-                  <Font size="24.0" />
+                  <Font size="23.0" />
                </font>
             </Label>
+            <ImageView fitHeight="288.0" fitWidth="401.0" layoutX="4.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@snack.jpeg" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
-      <ImageView fitHeight="118.0" fitWidth="401.0" layoutX="697.0" layoutY="502.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="123.0" fitWidth="401.0" layoutX="697.0" layoutY="498.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@food3.png" />
          </image>
