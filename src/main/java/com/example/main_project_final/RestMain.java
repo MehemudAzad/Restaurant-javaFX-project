@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
 
 public class RestMain extends Application {
@@ -23,8 +24,10 @@ public class RestMain extends Application {
     public Restaurant restaurant;
     private Stage stage;
     private NetworkUtil networkUtil;
-    public List<String> orderedFoodList = new ArrayList<>();
-    public List<String> customerList = new ArrayList<>();
+    public ConcurrentHashMap<String, List<String>> foodOrderedMap = new ConcurrentHashMap<>();
+//    public List<String> orderedFoodList = new ArrayList<>();
+    public ConcurrentHashMap<String, List<String>> customerOrderedMap = new ConcurrentHashMap<>();
+//    public List<String> customerList = new ArrayList<>();
     public Stage getStage() {
         return stage;
     }

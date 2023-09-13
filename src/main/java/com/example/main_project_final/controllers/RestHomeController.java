@@ -16,6 +16,8 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -100,11 +102,22 @@ public class RestHomeController {
         //I need to change these
 //        Image img = new Image(RestMain.class.getResourceAsStream("1.png"));
 //        image.setImage(img);
-
-        for(var s: main.orderedFoodList){
+        if (!main.foodOrderedMap.containsKey(msg)) {
+            // If not, create a new list and put it in the map
+            main.foodOrderedMap.put(msg, new ArrayList<>());
+        }
+        List<String> list = main.foodOrderedMap.get(msg);
+        for(var s: list){
             orderList.getItems().add(s);
         }
-        for(var s: main.customerList){
+
+
+        if (!main.customerOrderedMap.containsKey(msg)) {
+            // If not, create a new list and put it in the map
+            main.customerOrderedMap.put(msg, new ArrayList<>());
+        }
+        List<String> customerList = main.customerOrderedMap.get(msg);
+        for(var s: customerList){
             topCustomersList.getItems().add(s);
         }
     }
@@ -138,11 +151,6 @@ public class RestHomeController {
     @FXML
     public void logoutAction(ActionEvent event) {
         var lDTO = new LogoutDTO(main.restaurant.getName());
-
-        //clear the customer information
-        orderList.setItems(null);
-        topCustomersList.getItems().clear();
-
         lDTO.setStatus(true);
 
         try {

@@ -10,6 +10,8 @@ import com.example.main_project_final.utils.customerLoginDTO;
 import javafx.application.Platform;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ReadThreadResClient implements Runnable {
     private final Thread thr;
@@ -75,14 +77,37 @@ public class ReadThreadResClient implements Runnable {
                         //extract information from the orderDTO
                         var orderDTO = (OrderDTO) o;
                         String restName = orderDTO.getRestaurant().getName();
+                        String customerName = orderDTO.getCustomerName();
                         Restaurant restaurant = orderDTO.getRestaurant();
                         //update the orderCNT
                         var menuList = main.restaurant.getMenuItems();
                         var foodOrderMap = orderDTO.getOrderList();
 
+                        if (!main.foodOrderedMap.containsKey(restName)) {
+                            // If not, create a new list and put it in the map
+                            main.foodOrderedMap.put(restName, new ArrayList<>());
+                        }
+                        if (!main.customerOrderedMap.containsKey(restName)) {
+                            // If not, create a new list and put it in the map
+                            main.customerOrderedMap.put(restName, new ArrayList<>());
+                        }
+
+                        // Get the list associated with the key
+                        List<String> foodList = main.foodOrderedMap.get(restName);
+
+                        // Get the list associated with the key
+                        List<String> customerList = main.customerOrderedMap.get(restName);
+                        customerList.add(customerName);
+                        main.customerOrderedMap.put(restName, customerList);
+
 
                         foodOrderMap.forEach((food, orderCount) -> {
+                            /*
                             main.orderedFoodList.add(food.getName());
+                            */
+
+                            // Add the value to the list
+                            foodList.add(food.getName());
                             // Increment the order count for each Food object
                             food.increaseOrderCnt(orderCount);
                             for(Food f: menuList){
@@ -95,6 +120,9 @@ public class ReadThreadResClient implements Runnable {
 //                            System.out.println(food.getName() + "current order: " + orderCount);
 //                            System.out.println();
                         });
+
+                        // Put the modified list back into the map
+                        main.foodOrderedMap.put(restName, foodList);
 //                        System.out.println("");
 
                         //add ordered foods to orderedFoodItem list
