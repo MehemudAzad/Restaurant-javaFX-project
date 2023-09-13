@@ -15,9 +15,9 @@
         <TableView fx:id="foodOrderTable" editable="true" layoutX="13.0" layoutY="176.0" onMouseClicked="#addOrder" prefHeight="616.0" prefWidth="647.0" style="-fx-background-radius: 8px; -fx-background-color: #FCC8D1;">
             <columns>
                 <TableColumn fx:id="name" prefWidth="222.85936641693115" style="-fx-font-family: verdana;" text="Name" />
-                <TableColumn fx:id="category" prefWidth="178.0729217529297" text="Category" />
-                <TableColumn fx:id="price" prefWidth="105.72921752929688" text="Price" />
-                <TableColumn fx:id="actionCol" prefWidth="138.5" text="Action" />
+                <TableColumn fx:id="category" prefWidth="178.0729217529297" style="-fx-font-family: verdana;" text="Category" />
+                <TableColumn fx:id="price" prefWidth="105.72921752929688" style="-fx-font-family: verdana;" text="Price" />
+                <TableColumn fx:id="actionCol" prefWidth="138.5" style="-fx-font-family: verdana;" text="Action" />
             </columns>
         </TableView>
         <Label layoutX="18.0" layoutY="69.0" style="-fx-font-family: verdana;" text="Foods in the restaurant">
@@ -30,7 +30,7 @@
                 <Font size="18.0" />
             </font>
         </Label>
-        <Button fx:id="placeOrderButton" layoutX="676.0" layoutY="324.0" mnemonicParsing="false" onAction="#placeOrder" text="Place Order" />
+        <Button fx:id="placeOrderButton" layoutX="676.0" layoutY="324.0" mnemonicParsing="false" onAction="#placeOrder" style="-fx-background-color: #FFABAB;" text="Place Order" />
         <TextField fx:id="filteredField" layoutX="12.0" layoutY="131.0" prefHeight="37.0" prefWidth="174.0" style="-fx-background-radius: 8px; -fx-cursor: pointer; -fx-padding: 8px 12px;" />
         <Label layoutX="21.0" layoutY="107.0" text="By Name" />
         <Label layoutX="204.0" layoutY="107.0" text="By Category" />
@@ -45,8 +45,8 @@
                     <image>
                         <Image url="@starbucks.png" />
                     </image></ImageView>
-                <Button layoutX="216.0" layoutY="382.0" mnemonicParsing="false" text="Add To Favourites" />
-                <Button layoutX="346.0" layoutY="382.0" mnemonicParsing="false" text="REVIEW" />
+                <Button layoutX="216.0" layoutY="382.0" mnemonicParsing="false" style="-fx-background-color: #FFABAB;" text="Add To Favourites" />
+                <Button layoutX="346.0" layoutY="382.0" mnemonicParsing="false" style="-fx-background-color: #FFABAB;" text="REVIEW" />
                 <Label layoutX="28.0" layoutY="386.0" text="GET 50% of TK50 of pick-up!" />
                 <AnchorPane layoutX="7.0" layoutY="200.0" prefHeight="48.0" prefWidth="395.0" style="-fx-background-color: #FFFFFF;">
                     <children>
@@ -80,18 +80,24 @@
                 </AnchorPane>
             </children>
         </AnchorPane>
-        <Button layoutX="774.0" layoutY="324.0" mnemonicParsing="false" text="DISCARD" />
-        <Button layoutX="502.0" layoutY="71.0" mnemonicParsing="false" text="Popular Offers" />
-        <Button layoutX="318.0" layoutY="71.0" mnemonicParsing="false" text="GET 12% off  Combo Pakcs" />
+        <Button layoutX="774.0" layoutY="324.0" mnemonicParsing="false" style="-fx-background-color: #FFABAB;" text="DISCARD" />
+        <Button layoutX="502.0" layoutY="71.0" mnemonicParsing="false" style="-fx-background-color: #FFABAB;" text="Popular Offers" />
+        <Button layoutX="318.0" layoutY="71.0" mnemonicParsing="false" style="-fx-background-color: #FFABAB;" text="GET 12% off  Combo Pakcs" />
         <AnchorPane layoutX="-3.0" layoutY="-1.0" prefHeight="61.0" prefWidth="1103.0" style="-fx-background-color: #D14D72;">
             <children>
                 <Button fx:id="logoutButtonDetail" layoutX="1027.0" layoutY="17.0" mnemonicParsing="false" onAction="#logoutAction" style="-fx-background-color: #FFFFFF;" text="LogOut" />
                 <Button id="button-with-shadow" fx:id="backButton" layoutX="954.0" layoutY="17.0" mnemonicParsing="false" onAction="#goBackHome" style="-fx-background-color: #FFFFFF; -fx-border-radius: 5px;" stylesheets="@style.css" text="HOME" />
-            <Label layoutX="45.0" layoutY="12.0" prefHeight="37.0" prefWidth="161.0" text="Restaurnant Name" textFill="WHITE" />
-            <Label layoutX="840.0" layoutY="13.0" prefHeight="35.0" prefWidth="96.0" text="UserName" textFill="WHITE" />
+            <Label fx:id="restaurantNameLabel" layoutX="21.0" layoutY="12.0" prefHeight="37.0" prefWidth="243.0" style="-fx-font-family: verdana;" text="Restaurnant Name" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font></Label>
+            <Label fx:id="userLabel" layoutX="769.0" layoutY="13.0" prefHeight="35.0" prefWidth="166.0" style="-fx-font-family: verdana;" text="UserName" textAlignment="RIGHT" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font></Label>
             </children>
         </AnchorPane>
-        <Label fx:id="stateLabel" layoutX="607.0" layoutY="73.0" style="-fx-border-color: #D14D72; -fx-border-color: 3px; -fx-padding: 2px; -fx-border-width: 1px;" text="CLOSED" />
+        <Label fx:id="stateLabel" layoutX="607.0" layoutY="73.0" style="-fx-border-color: #D14D72; -fx-border-color: 3px; -fx-padding: 2px; -fx-border-width: 1px; -fx-background-color: #FFABAB;" text="CLOSED" />
       <TableView fx:id="cartTable" layoutX="674.0" layoutY="103.0" prefHeight="212.0" prefWidth="422.0" style="-fx-background-radius: 5px; -fx-background-color: #FCC8D1;">
         <columns>
           <TableColumn fx:id="orderNameCol" prefWidth="229.0" text="Name" />
@@ -101,11 +107,12 @@
       </TableView>
       <AnchorPane layoutX="922.0" layoutY="321.0" prefHeight="33.0" prefWidth="174.0" style="-fx-border-color: #FCC8D1; -fx-border-radius: 5px;">
          <children>
-              <Label layoutX="14.0" layoutY="3.0" prefHeight="27.0" prefWidth="84.0" text="PRICE: ">
+              <Label layoutX="3.0" layoutY="3.0" prefHeight="27.0" prefWidth="84.0" style="-fx-font-family: verdana;" text="PRICE: ">
                   <font>
                       <Font size="20.0" />
                   </font>
               </Label>
+            <Label fx:id="totalPriceLabel" layoutX="81.0" layoutY="8.0" prefHeight="17.0" prefWidth="79.0" />
          </children>
       </AnchorPane>
     </children>

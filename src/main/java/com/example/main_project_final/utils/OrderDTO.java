@@ -65,5 +65,24 @@ public class OrderDTO implements Serializable {
         }
         System.out.println();
     }
+    public double totalPrice(){
+        double total = 0;
+//        orderList.forEach((key, value) -> {
+//            System.out.println("Key: " + key + ", Value: " + value);
+//            total += value*key.getPrice();
+////        });
+//        for (orderList.Entry<String, Integer> entry : orderList.entrySet()) {
+//            Food key = e;
+//            Integer value = entry.getValue();
+//            System.out.println("Key: " + key + ", Value: " + value);
+//        }
+
+        for (Integer value : orderList.values()) {
+            total += value;
+        }
+
+        return total;
+    }
+
 
 }

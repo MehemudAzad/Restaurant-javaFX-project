@@ -39,10 +39,18 @@
             <Label alignment="CENTER" layoutX="46.0" layoutY="374.0" prefHeight="17.0" prefWidth="294.0" style="-fx-text-fill: #1F1D36;" text="Forgot Password?" />
             <Pane layoutX="43.0" layoutY="121.0" prefHeight="236.0" prefWidth="296.0">
                <children>
-                  <AnchorPane layoutY="115.0" prefHeight="51.0" prefWidth="300.0" style="-fx-border-color: #1F1D36;" />
+                  <AnchorPane layoutX="-1.0" layoutY="109.0" prefHeight="62.0" prefWidth="300.0" style="-fx-border-color: #1F1D36;">
+                     <children>
+                        <ImageView fitHeight="51.0" fitWidth="49.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@password-icon.png" />
+                           </image>
+                        </ImageView>
+                        <TextField layoutX="66.0" layoutY="11.0" prefHeight="39.0" prefWidth="220.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #FFFFFF;" />
+                     </children></AnchorPane>
                   <AnchorPane layoutY="40.0" prefHeight="56.0" prefWidth="296.0" style="-fx-border-color: #1F1D36;">
                      <children>
-                        <TextField fx:id="customerUserName" layoutX="62.0" layoutY="10.0" prefHeight="37.0" prefWidth="220.0" style="-fx-border-color: #FFFFFF; -fx-border-radius: 5px; -fx-background-radius: 5px;" />
+                        <TextField fx:id="customerUserName" layoutX="62.0" layoutY="8.0" prefHeight="39.0" prefWidth="220.0" style="-fx-border-color: #FFFFFF; -fx-border-radius: 5px; -fx-background-radius: 5px;" />
                         <ImageView fitHeight="39.0" fitWidth="62.0" layoutX="9.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@1.png" />
@@ -50,16 +58,16 @@
                         </ImageView>
                      </children>
                   </AnchorPane>
-                  <Button fx:id="loginButton" layoutY="183.0" mnemonicParsing="false" onAction="#loginAction" prefHeight="45.0" prefWidth="299.0" style="-fx-cursor: pointer; -fx-background-color: #1F1D36;" text="Login" textFill="WHITE">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Button>
                   <Label layoutX="1.0" text="Login as Customer">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
+                  <Button fx:id="loginButton" layoutX="-1.0" layoutY="186.0" mnemonicParsing="false" onAction="#loginAction" prefHeight="45.0" prefWidth="299.0" style="-fx-cursor: pointer; -fx-background-color: #1F1D36;" text="Login" textFill="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
                </children>
             </Pane>
          </children>

@@ -69,7 +69,9 @@ public class CustomerRestaurantController implements Initializable {
     @FXML
     private Label restNameLabel;
     @FXML
-    private Label use
+    private Label userLabel;
+    @FXML
+    private Label totalPriceLabel;
 
     @FXML
     void placeOrder(ActionEvent event) {
@@ -108,6 +110,9 @@ public class CustomerRestaurantController implements Initializable {
     }
     public void init(String restName){
             dataList.addAll(main.restaurantManager.searchRestaurantByName(restName).getMenuItems());
+            userLabel.setText(main.customerUserName);
+            restNameLabel.setText(restName);
+//            priceLabel.setText(main.orderDTO.totalPrice());
     }
 
     public void setMain(CustomerMain main) {
